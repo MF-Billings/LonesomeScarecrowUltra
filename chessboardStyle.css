@@ -1,0 +1,212 @@
+/* Billings, M., Kurylovich, A. */
+
+/* dim page when promotion dialog is displayed */
+#mask {						
+	display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 999;
+}
+
+#promotion {
+	display: none;
+    background: #fff;
+    border: 4px solid #ddd;
+    float: left;
+	padding: 0 5px 5px 5px;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    z-index: 99999;
+    /* box-shadow: 0px 0px 20px #999; */
+    /* CSS3 */
+		/* -moz-box-shadow: 0px 0px 20px #999; */
+    /* Firefox */
+		/* -webkit-box-shadow: 0px 0px 20px #999; */
+    /* Safari, Chrome */
+	/* border-radius: 3px 3px 3px 3px; */
+		/* -moz-border-radius: 3px; */
+    /* Firefox */
+        /* -webkit-border-radius: 3px; */
+    /* Safari, Chrome */;
+}
+
+#btnAcceptPromotion {
+	display: block;
+	margin: 5px auto;
+}
+
+#centerpoint {
+	background-color: red;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}
+
+#chessboard {
+	position:absolute;
+	z-index:0;				/* only works on positioned elements */
+}
+
+#chesspieceCanvas {
+	position: relative;
+	z-index:2;
+}
+
+#highlight {
+	position:absolute;
+	z-index:1;
+}
+
+#board {
+	display: inline-block;
+	border: 2px solid black;
+	height: inherit;
+	/* margin-left: 25px; */
+	overflow: auto;		/* prevent canvas from being pushed out of the border */
+	position: relative; 
+	width: 600px;
+	line-height: 0;			/* remove whitespace gap on bottom */
+	overflow: hidden;		/* remove scrollbars */
+}
+
+#boardAndInfo {
+	overflow: visible;
+	/* height: 600px; */	/* probably should be auto */
+	position: relative;
+	width: 1000px;			/* ideally have this stretch to fit contents. 840px temp*/
+}
+
+fieldset legend {	/* override styles for children*/
+	color: black;
+	margin: 0;
+}
+
+/* the container for all components related to the game */
+#gameArea { 
+	width: 650px;
+	font-size: 16px;
+}
+
+#gameInfo {
+	display: inline-block;
+	height: 585px;				/* align bottom with board */
+	width: 190px;
+	vertical-align: top;
+	position: relative;
+	/* -webkit-margin-start: 0; */
+    /* -webkit-margin-end: 0; */
+    /* -webkit-padding-before: 0.0; */
+    /* -webkit-padding-start: 0.0; */
+    /* -webkit-padding-end: 0.0; */
+    /* -webkit-padding-after: 0.0; */
+}
+
+#gameControlWidgets {
+	box-sizing: border-box;
+	padding: 0;
+	position: absolute;
+	bottom: 10px;
+	width: 93%;
+}
+
+#gameControlWidgets * {
+	display: block;
+	padding: 1px 0;
+	width: inherit;
+}
+
+
+#fileNotation {
+	color: gray;
+	font-size: 2.0em;
+	margin-left: 50px;		/* space before first letter */
+	letter-spacing: 54px; 	/* align letters over tiles */
+}
+
+#promotion {
+	display: none;
+	padding: 0;
+	text-align: center;
+}
+
+#promotion label {
+	display: block;
+	font-size: 4em;
+}
+
+#promoteOptions {
+	display: table;
+	margin: auto;
+	width: 100%;
+}
+
+#promoteOptions div {
+	display: table-cell;
+}
+
+#rankNotation {
+	color: gray;
+	float: left;
+	font-size: 2.0em;
+	line-height: 235%; /* 272% */
+	position: relative;
+	width: 0.9em;							/* width can be any amount and is just used so text moves to the next line */
+	word-wrap: break-word;
+}
+
+#output {
+	visibility: hidden;
+	font-size: 2.5em;
+	margin-bottom: 10px;
+	margin-top: 0;
+	text-align: center;
+}
+
+.boardLabel {
+	font-family: "Times New Roman", serif;
+}
+
+.dialogTitle {
+	background-color: #dedede;
+	font-family: Sans-Serif;
+	font-size: 1.7em;
+	margin: 0;
+}
+
+.promotionPiece {
+	display: inline-block;
+	text-align: center;
+	-webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
+.promotionPieces {
+	font-size: 5em;
+}
+
+.problemPropertyValue {
+	display: block;
+}
+
+.problemProperty {
+	display: block;
+	font-weight: bold;
+}
+
+/* prevent the dialog box from showing the close button */
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+/* prevent chrome from putting a misshapen highlight on the dialog box close button */
+/* :focus {	
+	outline: none;
+} */
