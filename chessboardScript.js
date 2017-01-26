@@ -30,12 +30,9 @@ $(document).ready(function() {
 	};
 	
 	currentComposition = {
-		currentSolutionNode : undefined,		// keep track of location within solution tree
 		composition : undefined,
 		groupId : undefined,
-		lastValidTurnForHint : 0,
-		turn : 0,					// 1st turn is turn 0
-		// nodeId : undefined		// don't remember what this was supposed to be for; go through and delete this if getHint gets working without it
+		turn : 0					// 1st turn is turn 0
 	}
 	
 	populateCompositionList();
