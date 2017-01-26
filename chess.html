@@ -1,34 +1,38 @@
-<script type="text/javascript">
-	// add CSS stylesheet to head through javascript
-	var temp = document.getElementsByTagName('head')[0];
-	var linkNode = document.createElement('LINK');
-	linkNode.setAttribute('rel', 'stylesheet');
-	linkNode.setAttribute('type', 'text/css');
-	linkNode.setAttribute('href', 'D:/GitHub/caribou/games/chess/chessboardStyle.css');
-	temp.appendChild(linkNode);
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="stylesheet" href="chessboardStyle.css">
+</head>
+
+<!-- <script type="text/javascript"> -->
+	<!-- // add CSS stylesheet to head through javascript -->
+	<!-- var temp = document.getElementsByTagName('head')[0]; -->
+	<!-- var linkNode = document.createElement('LINK'); -->
+	<!-- linkNode.setAttribute('rel', 'stylesheet'); -->
+	<!-- linkNode.setAttribute('type', 'text/css'); -->
+	<!-- linkNode.setAttribute('href', 'chessboardStyle.css'); -->
+	<!-- temp.appendChild(linkNode); -->
 	
-	// add jQuery dialog link (caused page jank for nav)
-	// linkNode = document.createElement('LINK');
-	// linkNode.setAttribute('rel', 'stylesheet');
-	// linkNode.setAttribute('href', 'chess/jquery-ui/jquery-ui.css');
-	// temp.appendChild(linkNode);
-</script>
+	<!-- // add jQuery dialog link (caused page jank for nav) -->
+	<!-- // linkNode = document.createElement('LINK'); -->
+	<!-- // linkNode.setAttribute('rel', 'stylesheet'); -->
+	<!-- // linkNode.setAttribute('href', 'chess/jquery-ui/jquery-ui.css'); -->
+	<!-- // temp.appendChild(linkNode); -->
+<!-- </script> -->
 <!-- <link rel="stylesheet" href="jquery-ui/jquery-ui.css"> -->								<!-- for dialog -->
- <script src="D:/GitHub/caribou/games/chess/jquery-ui/external/jquery/jquery.js"></script> 	<!-- v1.10.2 -->
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/global.js"></script>
+ <script src="jquery-ui/external/jquery/jquery.js"></script> 	<!-- v1.10.2 -->
+ <script type="text/javascript" src="global.js"></script>
  <!-- <script src="chess/jquery-ui/jquery-ui.js"></script> -->
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/misc.js" ></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/caribouContests.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/AI.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/board.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/listeners.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/piece.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/action.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/rules.js"></script>
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/chessboardScript.js" ></script>
+ <script type="text/javascript" src="misc.js" ></script>
+ <script type="text/javascript" src="compositions.js"></script>
+ <script type="text/javascript" src="AI.js"></script>
+ <script type="text/javascript" src="board.js"></script>
+ <script type="text/javascript" src="listeners.js"></script>
+ <script type="text/javascript" src="piece.js"></script>
+ <script type="text/javascript" src="action.js"></script>
+ <script type="text/javascript" src="rules.js"></script>
+ <script type="text/javascript" src="chessboardScript.js" ></script>
  <!--added stuff immediately below (different from php file)-->
- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/tree.js"></script>
-<!-- <script type="text/javascript" src="D:/GitHub/caribou/games/chess/TEST_closure.js"></script>-->
+ <script type="text/javascript" src="tree.js"></script>
 
 <div id="gameArea">
 	<h3 id="output">Turn: White</h3>

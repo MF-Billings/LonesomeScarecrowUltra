@@ -54,6 +54,9 @@
 }
 
 #chesspieceCanvas {
+	/* use a web-font to standardize chess pieces displayed across systems */
+	font-size: 70px;
+	font-family: 'Open Sans', sans-serif;
 	position: relative;
 	z-index:2;
 }
