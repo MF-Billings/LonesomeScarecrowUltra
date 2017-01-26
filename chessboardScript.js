@@ -1,8 +1,6 @@
 /* Billings, M., Kurylovich, A. */
 // Special comment tags for cleanup: NOTE, DELETE, DEBUG, TODO
 
-// BUG healey 18 undo from final move is broken
-// TODO check sol'n tree for healey #120 if Kc4 - not sure if I cover all the possibilities: Kc5 after Kc4 has no hint
 // TODO getHint can be spammed
 // TODO remove mate in 3 that has white king, queen, pawn, vs black king
 // TODO list problem sources
