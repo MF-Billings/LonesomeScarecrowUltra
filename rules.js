@@ -1,3 +1,5 @@
+/* Billings, M. */
+
 /* contains methods that provide a mechanism to enforce the rules of chess and provide information on board and game state
  * does not handle fifty-move rule, threefold repetition, or insufficient material to checkmate opponent cases
  * http://www.e4ec.org/immr.html for info regarding insufficient material rule and examples

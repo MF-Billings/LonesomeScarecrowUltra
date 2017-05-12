@@ -1,18 +1,19 @@
-/* Billings, Kurylovich */
+/* Billings, M., Kurylovich, A. */
 
 /* outlines basic functionality for chess pieces
  *
 */
 
+
 //object constructor
-function Piece(type, isWhite, unicode) {
+function Piece(type, isWhite, image) {
 	//warns the user if a Piece object is instantiated
 	if (this.__proto__ === Piece.prototype) {
 		console.log("Piece is an abstract class and should not be instantiated directly.");
 	}
 	this.type = type;
 	this.isWhite = isWhite;
-	this.unicode = unicode;
+	this.image = image;
 };
 
 Piece.prototype.toString = function() {
@@ -23,7 +24,7 @@ Piece.prototype.toString = function() {
  */
 function Pawn(isWhite) {
 	// call superclass constructor.  Note that the constructor must pass the child object's context (ie. this)
-	Piece.call(this, "Pawn", isWhite, (isWhite) ? "9817" : "9823");
+	Piece.call(this, "Pawn", isWhite, (isWhite) ? WHITE_PAWN_IMG : BLACK_PAWN_IMG);
 	this.hasMoved = false;
 }
 Pawn.prototype = Object.create(Piece.prototype);	// creates empty object with given prototype. makes pawn inherit from piece
@@ -72,7 +73,7 @@ Pawn.prototype.getStandardMoves = function(board, bHighlight, row, column) {
 }
 
 function Knight(isWhite) {
-	Piece.call(this, "Knight", isWhite, (isWhite) ? "9816" : "9822");
+	Piece.call(this, "Knight", isWhite, (isWhite) ? WHITE_KNIGHT_IMG : BLACK_KNIGHT_IMG);
 }
 Knight.prototype = Object.create(Piece.prototype);
 Knight.prototype.value = 3;
@@ -194,7 +195,7 @@ Knight.prototype.getStandardMoves = function(board, bHighlight, row, column) {
 }
 
 function Bishop(isWhite) {
-	Piece.call(this, "Bishop", isWhite, (isWhite) ? "9815" : "9821");
+	Piece.call(this, "Bishop", isWhite, (isWhite) ? WHITE_BISHOP_IMG : BLACK_BISHOP_IMG);
 }
 
 Bishop.prototype = Object.create(Piece.prototype);
@@ -267,7 +268,7 @@ Bishop.prototype.getStandardMoves = function(board, bHighlight, row, column) {
 }
 
 function Rook(isWhite) {
-	Piece.call(this, "Rook", isWhite, (isWhite) ? "9814": "9820");
+	Piece.call(this, "Rook", isWhite, (isWhite) ? WHITE_ROOK_IMG : BLACK_ROOK_IMG); 
 	this.hasMoved = false;
 }
 
@@ -341,7 +342,7 @@ Rook.prototype.getStandardMoves = function(board, bHighlight, row, column) {
 }
 
 function Queen(isWhite) {
-	Piece.call(this, "Queen", isWhite, (isWhite) ? "9813": "9819");
+	Piece.call(this, "Queen", isWhite, (isWhite) ? WHITE_QUEEN_IMG : BLACK_QUEEN_IMG);
 }
 
 Queen.prototype = Object.create(Piece.prototype);
@@ -354,7 +355,7 @@ Queen.prototype.getStandardMoves = function(board, bHighlight, row, column) {
 }
 
 function King(isWhite) {
-	Piece.call(this, "King", isWhite, (isWhite) ? "9812" : "9818");
+	Piece.call(this, "King", isWhite, (isWhite) ? WHITE_KING_IMG : BLACK_KING_IMG);
 	this.hasMoved = false;
 	this.isInCheck = false;		// faster than always requiring the use of the function determining check when appropriate
 }

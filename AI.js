@@ -1,4 +1,4 @@
-// Billings, M.
+/* Billings, M. */
 
 /* encapsulates data needed to infer the best move from a given state
  * board the board state represented 

@@ -1,3 +1,5 @@
+/* Billings, M. */
+
 /* Generate random number between min (inclusive) and max (exclusive)
  * min the minimum value for the range
  * max the maximum value for the range

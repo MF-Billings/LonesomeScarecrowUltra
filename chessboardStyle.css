@@ -1,4 +1,11 @@
-/* Billings, M., Kurylovich, A. */
+/* Billings, M.*/
+
+/* currently not using planned debug feature. Time could likely be better spent elsewhere currently */
+#debugDiv {
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
 /* dim page when promotion dialog is displayed */
 #mask {						

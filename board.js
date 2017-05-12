@@ -3,6 +3,9 @@
 /* Note: Board class does not contain the functionality to draw the pieces. That is handled in chessboardScript.js
  *
  */
+/* Clone a currently existing board.
+ *
+ */
 function Board(boardToClone) {
 	this.occupiedTiles = [];
 	this.whiteKingTile;
@@ -107,58 +110,6 @@ Board.prototype.getTile = function(row, col) {
 	}
 	
 	return currentTile;
-}
-
-/* Initialize board for a chess match. Overwrites the backing DS with the required setup for a standard chess game.
- * TODO support playing as Black as well
-*/
-Board.prototype.initialize = function() {
-	this.occupiedTiles = [];
-	
-	if (this instanceof Board) {
-		// place black pieces
-		this.addPiece(new Rook(BLACK), 0, 0);
-		this.addPiece(new Knight(BLACK), 0, 1);
-		this.addPiece(new Bishop(BLACK), 0, 2);
-		this.addPiece(new Queen(BLACK), 0, 3);
-		// this.blackKingTile = new Tile(new King(BLACK), 0, 4);
-		// this.occupiedTiles.push(this.blackKingTile);
-		this.addPiece(new King(BLACK), 0, 4);
-		this.addPiece(new Bishop(BLACK), 0, 5);
-		this.addPiece(new Knight(BLACK), 0, 6);
-		this.addPiece(new Rook(BLACK), 0, 7);
-		
-		for (var i = 0; i < 8; i++) {
-			this.addPiece(new Pawn(BLACK), 1, i);
-		}
-		
-		// place white pieces
-		for (var i = 0; i < 8; i++) {
-			this.addPiece(new Pawn(WHITE), 6, i);
-		}
-		
-		this.addPiece(new Rook(WHITE), 7, 0);
-		this.addPiece(new Knight(WHITE), 7, 1);
-		this.addPiece(new Bishop(WHITE), 7, 2);
-		this.addPiece(new Queen(WHITE), 7, 3);
-		// this.whiteKingTile = new Tile(new King(WHITE), 7, 4);
-		// this.occupiedTiles.push(this.whiteKingTile);
-		this.addPiece(new King(WHITE), 7, 4);
-		this.addPiece(new Bishop(WHITE), 7, 5);
-		this.addPiece(new Knight(WHITE), 7, 6);
-		this.addPiece(new Rook(WHITE), 7, 7);
-		
-		// DEBUG
-		// this.blackKingTile = new Tile(new King(BLACK), 0, 1);
-		// this.occupiedTiles.push(this.blackKingTile);
-
-
-		// this.whiteKingTile = new Tile(new King(WHITE), 7, 4);
-		// this.occupiedTiles.push(this.whiteKingTile);
-		// this.addPiece(new Queen(WHITE), 3, 2);
-	} else {
-		console.log("context of 'this' may be unintended:" + this);
-	}
 }
 
 /* check for opponent and board boundaries.  Does not check if the piece in question is blocked or not.

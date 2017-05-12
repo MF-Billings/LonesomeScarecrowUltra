@@ -2,6 +2,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 	<link rel="stylesheet" href="chessboardStyle.css">
 </head>
+<!-- Billings, M. -->
 
 <!-- <script type="text/javascript"> -->
 	<!-- // add CSS stylesheet to head through javascript -->
@@ -24,16 +25,19 @@
  <!-- <script src="chess/jquery-ui/jquery-ui.js"></script> -->
  <script type="text/javascript" src="misc.js" ></script>
  <script type="text/javascript" src="compositions.js"></script>
+ <script type="text/javascript" src="compositionInterface.js"></script>
  <script type="text/javascript" src="AI.js"></script>
  <script type="text/javascript" src="board.js"></script>
  <script type="text/javascript" src="listeners.js"></script>
  <script type="text/javascript" src="piece.js"></script>
  <script type="text/javascript" src="action.js"></script>
  <script type="text/javascript" src="rules.js"></script>
- <script type="text/javascript" src="chessboardScript.js" ></script>
+ <script type="text/javascript" src="chessboardScript.js"></script>
+ <script type="text/javascript" src="debug.js"></script>
  <!--added stuff immediately below (different from php file)-->
  <script type="text/javascript" src="tree.js"></script>
 
+<!-- the area that contains all components specific to the game -->
 <div id="gameArea">
 	<h3 id="output">Turn: White</h3>
 	<div id="fileNotation" class="boardLabel">
@@ -54,12 +58,18 @@
 			<legend>Options</legend>
 			<label>Problem Type:</label>
 			<select id="problemTypeSelector">
-				<option value="1" >checkmate in 1 move</option>
-				<option value="2"selected>checkmate in 2 moves</option>
+				<option value="1" selected>checkmate in 1 move</option>
+				<option value="2" >checkmate in 2 moves</option>
 				<option value="3" >checkmate in 3 moves</option>
 				<option value="4" >checkmate in 4 moves</option>
 			</select>
-			<br /><br />
+			<!-- not implemented -->
+			<div id="debugDiv">
+				<label>Debug Mode:</label><br />
+				<input type="radio" name="debugModeState" value="on" checked>On<br />
+				<input type="radio" name="debugModeState" value="off">Off<br />
+			</div>
+			
 			<label id="typeProperty" class="problemProperty"></label>
 			<label id="currentProblemType" class="problemPropertyValue"></label>
 			<br/>
@@ -70,19 +80,19 @@
 				<input type="button" id="uiNext" value="Next Problem">
 				<input type="button" id="uiUndo" value="Undo" disabled>	
 				<input type="button" id="uiReset" class="uiReset" value="Reset board" disabled>
-				<input type="button" id="uiHint" value="Get hint">
 			</div>
 		</fieldset>
 	</div>
 </div>
 
+<!-- appears when player reaches situation that would cause piece promotion -->
 <div id="promotion">
 	<h1 class="dialogTitle">Promote Piece</h1>
 	<div id="promoteOptions">
 		<figure class="promotionPiece">
 			<span class="promotionPieces">&#9813;</span>
 			<figcaption>
-				<input type="radio" name="promotionPick"  value="Queen" checked>Queen <!-- Queen -->
+				<input type="radio" name="promotionPick"  value="Queen" checked>Queen
 			</figcaption>
 		</figure>
 		<figure class="promotionPiece">

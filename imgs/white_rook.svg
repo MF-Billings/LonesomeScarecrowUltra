@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   viewBox="0 0 26.458333 26.458334"
+   version="1.1"
+   id="svg68"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="white_rook.svg">
+  <defs
+     id="defs62" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="37.734236"
+     inkscape:cy="62.746412"
+     inkscape:document-units="mm"
+     inkscape:current-layer="text3770"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata65">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-270.54165)">
+    <g
+       aria-label="♙"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.49278641px;line-height:1.25;font-family:'Arial Unicode MS';-inkscape-font-specification:'Arial Unicode MS';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.81231964"
+       id="text72" />
+    <g
+       aria-label="♖"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.16291046px;line-height:1.25;font-family:'Arial Unicode MS';-inkscape-font-specification:'Arial Unicode MS';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8040728"
+       id="text3770">
+      <path
+         d="M 24.293019,296.93909 H 2.1653139 v -4.05177 l 2.2300456,-2.43421 v -1.58616 l 2.6697728,-2.98386 v -7.08275 L 4.065564,276.77445 v -6.17188 h 4.2245229 v 2.85822 h 2.9838641 v -2.85822 h 3.926136 v 2.85822 h 2.983864 v -2.85822 h 4.224523 v 6.17188 l -2.999568,2.02589 v 7.08275 l 2.669772,2.98386 v 1.58616 l 2.214341,2.43421 z M 21.49761,276.13057 v -4.63284 h -2.402795 v 2.87393 h -4.805591 v -2.87393 H 12.16911 v 2.87393 H 7.3792232 v -2.87393 H 4.9764277 v 4.63284 z m -1.115023,0.94227 H 6.0914504 l 1.8374319,1.19355 H 18.545156 Z m -1.868841,8.292 v -6.2033 H 7.9602914 v 6.2033 z m 2.308569,3.4393 -2.24575,-2.54414 H 7.8974732 l -2.24575,2.54414 z m 2.4185,4.19311 -2.057296,-2.23005 V 289.715 H 5.2905186 v 1.0522 l -2.0572956,2.23005 z m 0.157045,3.04668 v -2.15152 H 3.0761776 v 2.15152 z"
+         style="stroke-width:0.8040728"
+         id="path3772" />
+    </g>
+  </g>
+</svg>

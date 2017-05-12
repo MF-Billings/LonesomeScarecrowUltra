@@ -1,7 +1,6 @@
 /* Billings, M., Kurylovich, A. */
 // Special comment tags for cleanup: NOTE, DELETE, DEBUG, TODO
 
-// TODO getHint can be spammed
 // TODO remove mate in 3 that has white king, queen, pawn, vs black king
 // TODO list problem sources
 // TODO problems on phone: fieldset is off page, pieces are a different size, presses not registered where pieces are located
@@ -12,11 +11,17 @@
 
 $(document).ready(function() {
 	var canvas = document.getElementById('chessboard');
-	var ctxPiece = document.getElementById('chesspieceCanvas').getContext('2d');				// the context that the pieces are drawn on
+	ctxPiece = document.getElementById('chesspieceCanvas').getContext('2d');				// the context that the pieces are drawn on
 	ctxPiece.font = PIECE_FONT;
 	ctxHighlight = document.getElementById('highlight').getContext('2d');
 	board = new Board();
 	
+	// images needed to be loaded beforehand to allow enough time for load completion
+//	img = document.createElement("img")
+//	img.src = "imgs/white_knight.svg";
+	preloadPieceImages();
+
+	// the chess problems
 	compositions = {
 		// currentCompositionId : null,							// id for composition currently displayed to player
 		currentCompositionGroupId : null,						// used to find composition group that composition belongs to
@@ -37,18 +42,6 @@ $(document).ready(function() {
 	
 	populateCompositionList();
     drawBoard(canvas, canvas.getContext('2d'));
-	
-	// DEBUG
-	// var pieceLetter = "KQRBNSP";
-	// var file = "abcdefgh";
-	// var rank = 8;
-	// for (var i = 0; i < pieceLetter.length; i++) {
-		// for (var j = 0; j < file.length; j++) {
-			// for (var k = 1; k <= rank; k++) {
-				// getTileWithStr(pieceLetter.charAt(i) + file.charAt(j) + k, board);
-			// }
-		// }
-	// }
 });	
 
 /* Find a piece on the board using pixel coordinates on the canvas
@@ -56,27 +49,29 @@ $(document).ready(function() {
  * y the vertical component of the 2d coordinate
 */
 function getBoardTileWithCoords(board, x, y) {
-	var col = Math.floor(x / LENGTH);
-	var row = Math.floor(y / LENGTH);
+	var col = Math.floor(x / TILE_SIZE);
+	var row = Math.floor(y / TILE_SIZE);
 	var result = board.getTile(row, col);
 	console.log(result);
 	return result;
 }
-	
+// TODO test; made changes to try and fix the positioning issues	
 /* Draws the visual representation of the physical board in a checkered patterns using two shades
-of brown.
+of brown. Does not draw the chess pieces.
 */
 function drawBoard(canvas, ctx) {
+	var rows = 8;
+	TILE_SIZE = canvas.height / rows;
     var white = true;
-    for (var i = 0; i < 8; i++) {
-        for (var j = 0; j < 8; j++) {
+    for (var row = 0; row < rows; row++) {
+        for (var col = 0; col < rows; col++) {
             if (!white) {
-                ctx.fillStyle = "rgb(160,82,45)";
-                ctx.fillRect(j * LENGTH, i * LENGTH, LENGTH, LENGTH);
+                ctx.fillStyle = TILE_COLOR1;
+                ctx.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                 white = true;
             } else {
-                ctx.fillStyle = "rgb(245,222,179)";
-                ctx.fillRect(j * LENGTH, i * LENGTH, LENGTH, LENGTH);
+                ctx.fillStyle = TILE_COLOR2; 
+                ctx.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                 white = false;
             }
         }
@@ -92,28 +87,31 @@ function drawBoard(canvas, ctx) {
 function fill(ctxHighlight, colour, action) {
 	if (action.column > -1 && action.column < 8 && action.row > -1 && action.row < 8) {
 		ctxHighlight.fillStyle = colour;
-		ctxHighlight.fillRect(action.column * LENGTH, action.row * LENGTH, LENGTH, LENGTH);
+		ctxHighlight.fillRect(action.column * TILE_SIZE, action.row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 		highlightedTiles.push(action); 
 	}
 }
 
 /* Draws a piece from the backing data structure to the board
- * board the desired board to pull from
  * tile the tile to draw
  */
 function drawPiece(tile) {	//(board, ..)
-	var x = tile.column * LENGTH;
-	var y = (tile.row + 1) * LENGTH - OFFSET;
-	var ctxPiece = document.getElementById('chesspieceCanvas').getContext('2d');
-	ctxPiece.clearRect(x, y - 65, LENGTH, LENGTH);						//clear tile first; need (y - 65) to adjust the coordinates to properly position vertical pixel
-	ctxPiece.fillText(String.fromCharCode(tile.piece.unicode), x, y);	//draws piece on board - coords specify bottom left corner of text
+	var x = tile.column * TILE_SIZE;
+	var y = tile.row * TILE_SIZE;
+//	var y = (tile.row + 1) * TILE_SIZE - OFFSET;
+	// get context that the pieces are drawn on
+//	var ctxPiece = document.getElementById('chesspieceCanvas').getContext('2d');
+	ctxPiece.clearRect(x, y, TILE_SIZE, TILE_SIZE);						//clear tile first; need (y - 65) to adjust the coordinates to properly position vertical pixel
+//	ctxPiece.clearRect(x, y - 65, TILE_SIZE, TILE_SIZE);						//clear tile first; need (y - 65) to adjust the coordinates to properly position vertical pixel
+	ctxPiece.drawImage(tile.piece.image, x, y, TILE_SIZE, TILE_SIZE);
+	//ctxPiece.fillText(String.fromCharCode(tile.piece.unicode), x, y);	//draws piece on board - coords specify bottom left corner of text
 }
 
 /* Draws pieces on the board in the positions reflected by the backing data structure
  * board the data structure that represents the board to be drawn
  */
 function draw(board) {
-	document.getElementById('chesspieceCanvas').getContext('2d').clearRect(0, 0, LENGTH * 8, LENGTH * 8);		//clear piece images from board
+	document.getElementById('chesspieceCanvas').getContext('2d').clearRect(0, 0, TILE_SIZE * 8, TILE_SIZE * 8);		//clear piece images from board
 	for (var i = 0; i < board.occupiedTiles.length; i++) {
 		drawPiece(board.occupiedTiles[i]);
 	}
@@ -131,10 +129,7 @@ function gameLoop(x, y) {
 			/* player moved piece - black's turn
 			 *
 			 */
-			if (!isWhiteTurn && !gameLoopIsRunning) {	
-				// hint state validation
-				updateHintStateValidity();
-				
+			if (!isWhiteTurn && !gameLoopIsRunning) {		
 				gameLoopIsRunning = true;
 				CPUTurnWrapper();
 				
@@ -146,8 +141,6 @@ function gameLoop(x, y) {
 				// }
 				// // code for white
 				// else if (!objLogData.agent.piece.isWhite) {
-					// check is board is capable of receiving hint
-					
 					// CODE GOES HERE
 					
 				// }
@@ -162,8 +155,8 @@ function gameLoop(x, y) {
  * y
  */
 function playerTurn(board, x, y) {
-	var column = Math.floor(x / LENGTH);		// find out the intersection of the row and column using the coordinates of where the player clicked
-	var row = Math.floor(y / LENGTH);
+	var column = Math.floor(x / TILE_SIZE);		// find out the intersection of the row and column using the coordinates of where the player clicked
+	var row = Math.floor(y / TILE_SIZE);
 	var highlightedTile = null; 				// not null if tile selected is highlighted in someway, ie. can the piece be moved there
 
 	//check if selected tile is highlighted
@@ -235,8 +228,9 @@ function playerTurn(board, x, y) {
 		
 		// DEBUG currently lets you select any piece
 		// only allow interaction with pieces of the correct colour
-		if (lastSelectedTile !== undefined)
-			isPlayerTurn = lastSelectedTile.piece.isWhite === lastSelectedTile.piece.isWhite; 
+		if (lastSelectedTile !== undefined) {
+			isPlayerTurn = lastSelectedTile.piece.isWhite === lastSelectedTile.piece.isWhite;
+		}
 		
 		// only allow King to be selected if King is in check
 		// NOTE need to test with other enemy pieces of all types
@@ -514,15 +508,40 @@ function CPUTurnWrapper() {
 			}
 		}
 		gameLoopIsRunning = false;
-		if (turnsRemaining == 0 || !gameIsRunning) {
-			$('#uiHint').attr('disabled', true);
-		}
-		
 		// update turn info here so the change occurs after the CPU move
-		// document.getElementById('turnsRemaining').innerHTML = 
 	}, 500);
 }
 
+/* Initialize image variables that will be used to display the chess pieces
+ *
+ */
+function preloadPieceImages() {
+	WHITE_PAWN_IMG = document.createElement("img");
+	WHITE_PAWN_IMG.src = "imgs/white_pawn.svg";
+	WHITE_KNIGHT_IMG = document.createElement("img");
+	WHITE_KNIGHT_IMG.src = "imgs/white_knight.svg";
+	WHITE_BISHOP_IMG = document.createElement("img");
+	WHITE_BISHOP_IMG.src = "imgs/white_bishop.svg";
+	WHITE_ROOK_IMG = document.createElement("img");
+	WHITE_ROOK_IMG.src = "imgs/white_rook.svg";
+	WHITE_QUEEN_IMG = document.createElement("img");
+	WHITE_QUEEN_IMG.src = "imgs/white_queen.svg";
+	WHITE_KING_IMG = document.createElement("img");
+	WHITE_KING_IMG.src = "imgs/white_king.svg";
+
+	BLACK_PAWN_IMG = document.createElement("img");
+	BLACK_PAWN_IMG.src = "imgs/black_pawn.svg";
+	BLACK_KNIGHT_IMG = document.createElement("img");
+	BLACK_KNIGHT_IMG.src = "imgs/black_knight.svg"
+	BLACK_BISHOP_IMG = document.createElement("img");	
+	BLACK_BISHOP_IMG.src = "imgs/black_bishop.svg";
+	BLACK_ROOK_IMG = document.createElement("img");
+	BLACK_ROOK_IMG.src = "imgs/black_rook.svg";
+	BLACK_QUEEN_IMG = document.createElement("img");
+	BLACK_QUEEN_IMG.src = "imgs/black_queen.svg";
+	BLACK_KING_IMG = document.createElement("img");
+	BLACK_KING_IMG.src = "imgs/black_king.svg";
+}
 /* outputs the given string to the game state indicator above the board
  *
  */

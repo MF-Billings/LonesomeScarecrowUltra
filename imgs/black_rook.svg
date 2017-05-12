@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="99.883316"
+   height="100"
+   viewBox="0 0 26.427462 26.458333"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="black_rook.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.1089996"
+     inkscape:cx="-119.86132"
+     inkscape:cy="49.437172"
+     inkscape:document-units="mm"
+     inkscape:current-layer="text77"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="px" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-52.242468,-44.907197)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:Tahoma;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="84.288696"
+       y="68.702377"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="84.288696"
+         y="78.357872"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Tahoma;-inkscape-font-specification:Tahoma;stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:Tahoma;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="57.679165"
+       y="64.695831"
+       id="text16"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="57.679165"
+         y="74.351326"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:Tahoma;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="72.590401"
+       y="60.613468"
+       id="text20"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         x="72.590401"
+         y="70.268967"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Arial Unicode MS';-inkscape-font-specification:'Arial Unicode MS';stroke-width:0.26458332" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot22"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:Tahoma;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion24"><rect
+           id="rect26"
+           width="56.922096"
+           height="60.104076"
+           x="259.86176"
+           y="192.67427" /></flowRegion><flowPara
+         id="flowPara28" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:Tahoma;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="55.191154"
+       y="68.471191"
+       id="text32"><tspan
+         sodipodi:role="line"
+         id="tspan30"
+         x="55.191154"
+         y="78.126686"
+         style="stroke-width:0.26458332" /></text>
+    <g
+       aria-label="♘"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Arial Unicode MS';-inkscape-font-specification:'Arial Unicode MS';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       id="text36">
+      <g
+         aria-label="♞"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.61415863px;line-height:1.25;font-family:'Arial Unicode MS';-inkscape-font-specification:'Arial Unicode MS';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20911448"
+         id="text55">
+        <g
+           aria-label="♜"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.3116684px;line-height:1.25;font-family:'Arial Unicode MS';-inkscape-font-specification:'Arial Unicode MS';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16892095"
+           id="text77">
+          <path
+             d="M 76.571222,71.36553 H 54.341173 v -4.070513 l 2.24036,-2.445463 v -1.593496 l 2.682121,-2.997664 v -7.115509 l -3.013442,-2.035257 v -6.200432 h 4.244062 v 2.871447 h 2.997665 v -2.871447 h 3.944295 v 2.871447 h 2.997665 v -2.871447 h 4.244061 v 6.200432 l -3.013441,2.035257 v 7.115509 l 2.682121,2.997664 v 1.593496 l 2.224582,2.445463 z M 73.762884,50.460764 V 48.693719 H 57.165289 v 1.767045 z M 73.084465,63.192949 71.380529,61.28391 H 59.547643 l -1.703936,1.909039 z m 2.429686,4.212508 -2.066811,-2.24036 H 57.480832 l -2.066811,2.24036 z"
+             style="stroke-width:0.16892095"
+             id="path79" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

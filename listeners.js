@@ -2,13 +2,6 @@
 
 // assign listeners
 $(document).ready(function() {	// use to be window.load - delete this comment if everything still works fine
-	document.getElementById('uiHint').addEventListener('click', function() {
-		getHintListener(
-			board
-			// parseInt(document.getElementById('turnsRemaining').innerHTML),
-			// getComposition(currentComposition.groupId, currentComposition.composition.id)
-		);
-	});
 	document.getElementById('uiNext').addEventListener('click', nextProblemListener);
 	document.getElementById('uiReset').addEventListener('click', resetListener);
 	document.getElementById('uiUndo').addEventListener('click', undoListener);
@@ -16,6 +9,7 @@ $(document).ready(function() {	// use to be window.load - delete this comment if
 });
 
 $(window).load(function() {
+	// listen for user clicks on the board
 	document.getElementById('chesspieceCanvas').addEventListener('click', function(event) {
         var canvasLeft, canvasTop;
 		var x, y;
@@ -24,7 +18,7 @@ $(window).load(function() {
 		if (gameLoopIsRunning)
 			return false;
 		
-		ctxHighlight.clearRect(0, 0, LENGTH * 8, LENGTH * 8);			// remove all visible highlighting on the board
+		ctxHighlight.clearRect(0, 0, TILE_SIZE * 8, TILE_SIZE * 8);			// remove all visible highlighting on the board
 		
 		/* accounts for fact that board may not be positioned in the top left corner of the page
 		 * border isn't counted with offset()
@@ -82,7 +76,6 @@ function acceptPromotionListener() {
 	highlightedTile = null;
 	highlightedTiles = []; 												// reset which tiles are hightlighted each time this runs
 	isWhiteTurn = (lastSelectedTile.piece.isWhite) ? false : true;		// toggle game turn after a piece has moved
-	updateHintStateValidity();
 	CPUTurnWrapper(); 													// run code for Black's turn once fade-out has transpired
 }
 
@@ -117,11 +110,10 @@ function resetListener() {
 	document.getElementById('turnsRemaining').innerHTML = turnsRemaining;
 	currentComposition.turn = 0;
 	currentComposition.nodeId = undefined;
-	ctxHighlight.clearRect(0,0, LENGTH * 8, LENGTH * 8);			// remove any visible highlighting
+	ctxHighlight.clearRect(0,0, TILE_SIZE * 8, TILE_SIZE * 8);			// remove any visible highlighting
 	outputText('Turn: White');
 	$('#uiUndo').attr('disabled', true);
 	$('#uiStart').attr('disabled', true);
-	$('#uiHint').attr('disabled', false);
 }
 
 /* Undo the last turn. Returns player to the state before their last move, rolling back the most recent actions of the player and CPU.  Caribou contests
@@ -163,7 +155,6 @@ function undoListener() {
 	
 	// revert UI elements
 	outputText('Turn: White');
-	$('#uiHint').attr('disabled', false);
 }
 
 /* Generate a new, currently unsolved problem in the same class as the currently selected problem type
@@ -175,11 +166,10 @@ function nextProblemListener() {
 	gameIsRunning = true;
 	isWhiteTurn = true;
 	highlightedTiles = [];										// prevent the selection of a highlighted tile as an action if the player selects a piece and then uses the next problem widget
-	ctxHighlight.clearRect(0, 0, LENGTH * 8, LENGTH * 8);		// remove visual presence of highlight
+	ctxHighlight.clearRect(0, 0, TILE_SIZE * 8, TILE_SIZE * 8);		// remove visual presence of highlight
 	
-	// reset states for composition
-	// if (currentComposition.composition.id !== null) {
-	if (currentComposition.composition !== undefined && currentComposition.composition.id !== undefined) {//currentComposition.composition !== null && 
+	// reset states for composition so undo button will not function until a new move has been made
+	if (currentComposition.composition !== undefined && currentComposition.composition.id !== undefined) {
 		// currentComposition.composition = getComposition(currentComposition.groupId, currentComposition.composition.id);
 		currentComposition.composition.states = [];
 	}
